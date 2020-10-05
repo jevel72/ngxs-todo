@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 
 import { Observable } from 'rxjs';
 import { Select, Store } from '@ngxs/store';
@@ -13,8 +14,10 @@ import { DeleteTodo, DeleteAllTodos } from '../store/actions/todo.actions';
   styleUrls: ['./todo.component.scss'],
 })
 export class TodoComponent implements OnInit {
-  constructor(private store: Store) {}
-  ngOnInit(): void {}
+  constructor(private store: Store, private title: Title) {}
+  ngOnInit(): void {
+    this.title.setTitle('Todo Application');
+  }
   public displayedColumns: string[] = ['id', 'title', 'description', 'done'];
   public selectedRowId: number = -1;
   public updateSelectedRow(id: number): void {

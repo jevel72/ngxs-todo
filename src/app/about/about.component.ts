@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'hotel-about',
@@ -6,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./about.component.scss'],
 })
 export class AboutComponent implements OnInit {
-  constructor() {}
-  ngOnInit(): void {}
+  constructor(private title: Title) {}
+  ngOnInit(): void {
+    this.title.setTitle('About');
+  }
 }

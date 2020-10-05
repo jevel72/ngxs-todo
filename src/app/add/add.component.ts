@@ -1,6 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { Title } from '@angular/platform-browser';
 
 import { Observable, Subscription } from 'rxjs';
 import { Store, Select } from '@ngxs/store';
@@ -17,7 +18,8 @@ export class AddComponent implements OnInit, OnDestroy {
   constructor(
     private fb: FormBuilder,
     private router: Router,
-    private store: Store
+    private store: Store,
+    private title: Title
   ) {}
   ngOnInit(): void {
     this.form = this.fb.group({
@@ -27,6 +29,7 @@ export class AddComponent implements OnInit, OnDestroy {
     this.subscriptionCount = this.todosCount.subscribe(
       (count) => (this.count = count)
     );
+    this.title.setTitle('Add Todo');
   }
   ngOnDestroy() {
     this.subscriptionCount.unsubscribe();
