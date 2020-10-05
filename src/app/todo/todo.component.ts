@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ChangeDetectionStrategy, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 
 import { Observable } from 'rxjs';
@@ -12,6 +12,7 @@ import { DeleteTodo, DeleteAllTodos } from '../store/actions/todo.actions';
   selector: 'hotel-todo',
   templateUrl: './todo.component.html',
   styleUrls: ['./todo.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class TodoComponent implements OnInit {
   constructor(private store: Store, private title: Title) {}

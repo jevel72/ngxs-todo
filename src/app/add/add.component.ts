@@ -1,4 +1,9 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import {
+  Component,
+  ChangeDetectionStrategy,
+  OnInit,
+  OnDestroy,
+} from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Title } from '@angular/platform-browser';
@@ -13,6 +18,7 @@ import { AddTodo } from '../store/actions/todo.actions';
   selector: 'hotel-add',
   templateUrl: './add.component.html',
   styleUrls: ['./add.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AddComponent implements OnInit, OnDestroy {
   constructor(
