@@ -24,6 +24,9 @@ export class AddComponent implements OnInit, OnDestroy {
       title: ['', [Validators.required]],
       description: ['', Validators.required],
     });
+    this.subscriptionCount = this.todosCount.subscribe(
+      (count) => (this.count = count)
+    );
   }
   ngOnDestroy() {
     this.subscriptionCount.unsubscribe();
@@ -39,9 +42,7 @@ export class AddComponent implements OnInit, OnDestroy {
     this.store.dispatch(new AddTodo(todoDTO));
     this.router.navigateByUrl('/');
   }
-  @Select(TodosState.count) private todosCount: Observable<number>;
   private count: number;
-  private subscriptionCount: Subscription = this.todosCount.subscribe(
-    (count) => (this.count = count)
-  );
+  private subscriptionCount: Subscription;
+  @Select(TodosState.count) private todosCount: Observable<number>;
 }
