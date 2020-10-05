@@ -1,4 +1,9 @@
-import { Component, ChangeDetectionStrategy, OnInit } from '@angular/core';
+import {
+  Component,
+  ChangeDetectionStrategy,
+  HostListener,
+  OnInit,
+} from '@angular/core';
 import { Title } from '@angular/platform-browser';
 
 import { Observable } from 'rxjs';
@@ -29,6 +34,12 @@ export class TodoComponent implements OnInit {
   }
   public deleteAllTodos(): void {
     this.store.dispatch(new DeleteAllTodos());
+  }
+  @HostListener('document:click', ['$event'])
+  private handleDocumentClick(ev): void {
+    if (ev.target.localName !== 'td') {
+      this.selectedRowId = -1;
+    }
   }
   @Select(TodosState.todos) public todos$: Observable<Todo[]>;
 }
