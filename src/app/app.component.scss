@@ -1,0 +1,13 @@
+.header-buttons {
+  margin-left: auto;
+  button {
+    margin-left: 15px;
+  }
+}
+
+span {
+  cursor: pointer;
+  &:hover {
+    text-shadow: 0 0 15px white;
+  }
+}

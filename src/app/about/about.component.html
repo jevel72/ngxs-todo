@@ -1,0 +1,16 @@
+<mat-card>
+  <mat-card-title>About this project</mat-card-title>
+  <mat-card-content>
+    <span
+      >This my very basic pet project on Angular 10 using NGXS and Material for
+      UI</span
+    >
+    <h2>I used some great libraries for this project:</h2>
+    <mat-button-toggle-group #toggle="matButtonToggleGroup">
+      <mat-button-toggle value="ngxs">NGXS</mat-button-toggle>
+      <mat-button-toggle value="material">Angular Material</mat-button-toggle>
+      <mat-button-toggle value="immer">Immer</mat-button-toggle>
+    </mat-button-toggle-group>
+  </mat-card-content>
+  <hotel-technology [library]="toggle.value"></hotel-technology>
+</mat-card>

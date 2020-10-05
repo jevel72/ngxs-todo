@@ -1,0 +1,22 @@
+:host {
+  margin: 25px;
+  display: block;
+}
+
+table {
+  background-color: rgb(255, 255, 119);
+  padding: 10px;
+  th,
+  td {
+    padding: 20px;
+    margin: 25px;
+  }
+}
+
+.selectedRow {
+  background-color: rgb(77, 255, 92);
+}
+
+button {
+  margin: 30px;
+}
